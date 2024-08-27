@@ -25,4 +25,6 @@ export class HomeComponent {
     wifi: true,
     laundry: false,
   };
+
+  
 }
