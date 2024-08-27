@@ -15,10 +15,11 @@ import {HousingLocation} from '../housinglocation';
 export class HomeComponent {
   readonly baseUrl = 'https://angular.dev/assets/images/tutorials/common';
 
-  housingLocation: HousingLocation = {
+   
+  mainHousingLocation: HousingLocation = {
     id: 9999,
-    name: 'Test Home',
-    city: 'Test city',
+    name: 'Main Home',
+    city: 'Impera city',
     state: 'ST',
     photo: `${this.baseUrl}/example-house.jpg`,
     availableUnits: 99,
@@ -26,5 +27,5 @@ export class HomeComponent {
     laundry: false,
   };
 
-  
+
 }
