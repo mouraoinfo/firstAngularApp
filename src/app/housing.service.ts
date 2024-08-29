@@ -7,6 +7,8 @@ import {HousingLocation} from './housinglocation';
 })
 export class HousingService {
 
+  url = 'http://localhost:3000/locations';
+
   readonly baseUrl = 'https://angular.dev/assets/images/tutorials/common';
   protected housingLocationList: HousingLocation[] = [
     {
@@ -110,10 +112,22 @@ export class HousingService {
       laundry: true,
     },
   ];
-  getAllHousingLocations(): HousingLocation[] {
+
+  async getAllHousingLocations(): Promise<HousingLocation[]> {
+    const data = await fetch(this.url);
+    return (await data.json()) ?? [];
+  }
+  zgetAllHousingLocations(): HousingLocation[] {
     return this.housingLocationList;
   }
-  getHousingLocationById(id: number): HousingLocation | undefined {
+
+  async getHousingLocationById(id: number): Promise<HousingLocation | undefined> {
+    const data = await fetch(`${this.url}/${id}`);
+    return (await data.json()) ?? {};
+  }
+
+
+  zgetHousingLocationById(id: number): HousingLocation | undefined {
     return this.housingLocationList.find((housingLocation) => housingLocation.id === id);
   }
 
